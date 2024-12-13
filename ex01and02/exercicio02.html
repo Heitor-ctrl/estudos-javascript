@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <style>
+        body {
+            background: rgb(0, 100, 200);
+        }
+        .central {
+            background: rgb(0, 100, 200);
+        }
+        h1 {
+            font: normal 35pt Arial;
+            text-align: center;
+            color: white;
+        }
+        .box {
+            height: 400px;
+            margin: auto;
+            width: 500px;
+            margin-top: 50px;
+            background: white;
+            border-radius: 20px;
+        }
+        #data{
+            margin-top: 40px;
+        }
+        #ano {
+            margin-top: 40px;
+            margin-left: 15px;
+        }
+        #secao, #botao, #interativo {
+            margin-left: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        #rodape {
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+            font: normal 15pt Arial;
+        }
+        #interativo {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Idade</h1>
+    <div class="central">
+        <div class="box">
+            <label id="ano" for="data">Ano de Nascimento: </label> <input id="data" name="data" type="number">
+            <section id="secao"> Sexo:
+                <input id="Masculino" type="radio" name="sexo" value="Masculino"> <label for="Masculino">Masculino</label>
+                <input id="Feminino" type="radio" name="sexo" value="Feminino"> <label for="Feminino">Feminino</label>
+            </section>
+            <input type="button" value="verificar" id="botao" onclick="botao()">
+            <div id="interativo">
+                Preencha os dados acima para ver o resultado!
+            </div>
+        </div>
+    </div>
+    <footer id="rodape">&copy; Curso em vídeo</footer>
+    <script>
+        function botao () {
+            var inte = document.getElementById('interativo')
+            var nasc = document.getElementById('data').value;
+            var sexos = document.getElementsByName('sexo')
+            var ano = new Date
+            ano = ano.getFullYear()
+            var soma = ano - nasc
+            for (let sexo of sexos) {
+                if (sexo.checked) {
+                    if (sexo.value === "Masculino") {
+                        inte.innerHTML = `<p>Você tem ${soma} anos e seu genêro é masculino.</p>
+                        <img src="Fotos/masc.jpg" atl="Símbolo masculino">`
+                        break;
+                    } else {
+                        inte.innerHTML = `<p>Você tem ${soma} anos e seu genêro é feminino.</p>
+                        <img src="Fotos/fem.jpg" atl="Símbolo feminino">`
+                        break;
+                    };
+                };
+            };
+        };
+    </script>
+</body>
+</html>

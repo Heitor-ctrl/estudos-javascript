@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do dia</title>
+    <style>
+        h1 {
+            font: normal 50px arial;
+            text-align: center;
+            color: white;
+        }
+        #box {
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            color: white;
+            font: normal 20px Arial;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="corpo">
+    <h1><strong>Hora do dia</strong></h1>
+    <div id="box">
+        <p id="desc"></p>
+        <img id="img" src="Fotos/paisagem1.jpg" alt="Imagem relativa ao horário" >
+    </div>
+    <footer>&copy; Curso em vídeo</footer>
+    <script>
+        var corpo = document.getElementById('corpo')
+        var box = document.getElementById('box')
+        var hora = new Date
+        var desc = document.getElementById('desc')
+        hora = hora.getHours()
+        var plural = + hora > 1 ? 'horas' : 'hora'
+        if (hora < 12) {
+            img.style.width = '270px'
+            img.style.borderRadius = '100%'
+            corpo.style.background = '#2F4F4F'
+            box.style.background = 'white'
+            desc.innerText = `Agora são ${hora} ${plural}, BOM DIA!` 
+        } else if (hora < 18) {
+            img.style.height = '250px'
+            img.src = 'Fotos/paisagemtarde.jpg'
+            img.style.width = '270px'
+            img.style.borderRadius = '100%'
+            corpo.style.background = '#CD5C5C'
+            box.style.background = 'white'
+            desc.innerText = `Agora são ${hora} ${plural}, BOA TARDE!`
+        } else if (hora >= 18) {
+            img.style.height = '250px'
+            img.src = 'Fotos/noite.jpg'
+            img.style.width = '270px'
+            img.style.borderRadius = '100%'
+            corpo.style.background = '#708090'
+            box.style.background = 'white'
+            desc.innerText = `Agora são ${hora} ${plural}, BOA NOITE!`
+        }
+    </script>
+</body>
+</html>
